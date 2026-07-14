@@ -1,0 +1,40 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: timekeeper-server
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/timekeeper?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai&characterEncoding=UTF-8
+    username: root
+    password: root123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+
+# Knife4j 接口文档
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /v3/api-docs
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
+    enable-swagger-models: true
+    enable-filter-multipart-apis: false
+
+# JWT
+app:
+  jwt:
+    secret: dGltZWtlZXBlci1zZWNyZXQta2V5LTIwMjUtc2VjdXJlLWp3dC10b2tlbi1mb3ItYXV0aA==
+    expiration-ms: 604800000
